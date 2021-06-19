@@ -14,8 +14,8 @@ class Game
     assets.bush.path = 'sprites/bush.png'
 
     player.tile_size              = 64
-    player.speed                  = 3
-    player.speed_while_charging   = 2
+    player.speed                  = 5
+    player.speed_while_charging   = 3
     player.charge_frames          = 90
     player.slash_frames           = 20
     player.spin_frames            = 40
@@ -179,7 +179,7 @@ class Game
 
   def calc_collision_boxes
     # re-calc the location of the swords collision box
-    if player.dir_x.pos?
+    if player.dir_x.positive?
       player.spin_collision_rect = [player.x - 20 , player.y - 20, 95, 95]
 
       player.slash_collision_rect = [player.x + player.tile_size + 8,

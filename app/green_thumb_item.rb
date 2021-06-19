@@ -1,4 +1,5 @@
 module GreenThumbItem
+
   def add_bush point
     return if !point
     return if state.bushes.any? { |b| b[:x] == point.x && b[:y] == point.y }
@@ -33,7 +34,7 @@ module GreenThumbItem
 
   def calc_green_thumb_item
     # re-calc the location of the swords collision box
-    if player.dir_x.pos?
+    if player.dir_x.positive?
       player.item.green_thumb.aoe = [
         [player.x + player.tile_size + 27,
          player.y + player.tile_size.half + 10,
